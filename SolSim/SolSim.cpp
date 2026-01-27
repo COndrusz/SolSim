@@ -1,6 +1,7 @@
 #include <iostream>
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
+#include "Logger.h"
 
 // Function Declarations
 void framebuffer_size_callback(GLFWwindow* window, int width, int height);
@@ -21,6 +22,13 @@ const char* fragmentShaderSource = "#version 330 core\n"
 "   FragColor = vec4(1.0f, 0.5f, 0.2f, 1.0f);\n"
 "}\0";
 
+const char* fragmentShader2Source = "#version 330 core\n"
+"out vec4 FragColor;\n"
+"void main()\n"
+"{\n"
+"   FragColor = vec4(1.0f, 1.0f, 0.0f, 1.0f);\n"
+"}\n\0";
+
 int main()
 {
     // Initialise GLFW
@@ -31,6 +39,10 @@ int main()
     //glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE);
 
 
+    Logger::info("log test %d %s", 1, "name");
+    Logger::warn("log test %d %s", 1, "name");
+    Logger::error("log test %d %s", 1, "name");
+    Logger::fatal("log test %d %s", 1, "name");
     // Initialise log:
     int  success;
     char infoLog[512];
@@ -102,15 +114,17 @@ int main()
 
 
     float vertices[] = {
-         0.5f,  0.5f, 0.0f,  // top right
-         0.5f, -0.5f, 0.0f,  // bottom right
-        -0.5f, -0.5f, 0.0f,  // bottom left
-        -0.5f,  0.5f, 0.0f   // top left 
+         0.1f,  0.1f, 0.0f,  // top right
+         -0.1f,  0.1f, 0.0f,
+         0.0f,  0.2f, 0.0f,
+         0.1f, -0.1f, 0.0f,  // bottom right
+        -0.1f, -0.1f, 0.0f,  // bottom left
+        0.0f,  -0.2f, 0.0f   // top left 
     };
 
     unsigned int indices[] = {  // note that we start from 0!
-    0, 1, 3,   // first triangle
-    1, 2, 3    // second triangle
+    0, 1, 2,   // first triangle
+    3, 4, 5    // second triangle
     };
 
     unsigned int VBO, VAO, EBO;
@@ -128,7 +142,7 @@ int main()
 
     glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), (void*)0);
     glEnableVertexAttribArray(0);
-    glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
+    //glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
     // Render Loop
     while (!glfwWindowShouldClose(window))
     {
