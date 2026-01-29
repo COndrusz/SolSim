@@ -38,11 +38,10 @@ int main()
     glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
     //glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE);
 
+    Logger::WriteToFile();
 
-    Logger::info("log test %d %s", 1, "name");
-    Logger::warn("log test %d %s", 1, "name");
-    Logger::error("log test %d %s", 1, "name");
-    Logger::fatal("log test %d %s", 1, "name");
+    
+    
     // Initialise log:
     int  success;
     char infoLog[512];
@@ -52,7 +51,7 @@ int main()
     GLFWwindow* window = glfwCreateWindow(800, 600, "LearnOpenGL", NULL, NULL);
     if (window == NULL)
     {
-        std::cout << "Failed to create GLFW Window" << std::endl;
+        Logger::fatal("Failed to create GLFW Window");
         glfwTerminate();
         return -1;
     }
@@ -63,7 +62,7 @@ int main()
     // glad: Load OpenGL function pointers
     if (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress))
     {
-        std::cout << "Failed to Initialize GLAD" << std::endl;
+        Logger::fatal("Failed to Initialize GLAD");
         return -1;
     }
 
@@ -78,7 +77,7 @@ int main()
     if (!success)
     {
         glGetShaderInfoLog(vertexShader, 512, NULL, infoLog);
-        std::cout << "ERROR::SHADER::VERTEX::COMPILATION_FAILED\n" << infoLog << std::endl;
+        Logger::error("SHADER::VERTEX::COMPILATION_FAILED");
     }
 
     glShaderSource(vertexShader, 1, &vertexShaderSource, NULL);
@@ -92,7 +91,7 @@ int main()
     glGetShaderiv(fragmentShader, GL_LINK_STATUS, &success);
     if (!success) {
         glGetShaderInfoLog(fragmentShader, 512, NULL, infoLog);
-        std::cout << "ERROR::SHADER::FRAGMENT::COMPILATION_FAILED\n" << infoLog << std::endl;
+        Logger::error("SHADER::FRAGMENT::COMPILATION_FAILED");
     }
 
     // shaders: Create Shader Program
@@ -164,6 +163,7 @@ int main()
 
 
     // glfw: terminate, clearing all allocated GLFW resources
+    Logger::CloseFileOutput();
     glfwTerminate();
     return 0;
 }
