@@ -1,0 +1,32 @@
+INFO	log test 1 name
+WARN	log test 1 name
+ERROR	log test 1 name
+FATAL	log test 1 name
+INFO	log test 1 name
+WARN	log test 1 name
+ERROR	log test 1 name
+FATAL	log test 1 name
+INFO	log test 1 name
+WARN	log test 1 name
+ERROR	log test 1 name
+FATAL	log test 1 name
+Thu Jan 29 11:26:57 2026INFO	log test 1 name
+Thu Jan 29 11:26:57 2026WARN	log test 1 name
+Thu Jan 29 11:26:57 2026ERROR	log test 1 name
+Thu Jan 29 11:26:57 2026FATAL	log test 1 name
+Thu Jan 29 11:27:18 2026	INFO	log test 1 name
+Thu Jan 29 11:27:18 2026	WARN	log test 1 name
+Thu Jan 29 11:27:18 2026	ERROR	log test 1 name
+Thu Jan 29 11:27:18 2026	FATAL	log test 1 name
+Thu Jan 29 11:27:37 2026 INFO	log test 1 name
+Thu Jan 29 11:27:37 2026 WARN	log test 1 name
+Thu Jan 29 11:27:37 2026 ERROR	log test 1 name
+Thu Jan 29 11:27:37 2026 FATAL	log test 1 name
+Thu Jan 29 11:32:19 2026 INFO	log test 1 name
+Thu Jan 29 11:32:19 2026 WARN	log test 1 name
+Thu Jan 29 11:32:19 2026 ERROR	log test 1 name
+Thu Jan 29 11:32:48 2026 INFO	log test 1 name
+Thu Jan 29 11:32:48 2026 WARN	log test 1 name
+Thu Jan 29 11:32:48 2026 ERROR	log test 1 name
+Thu Jan 29 11:34:40 2026 ERROR	SHADER::VERTEX::COMPILATION_FAILED
+Thu Jan 29 11:34:40 2026 ERROR	SHADER::FRAGMENT::COMPILATION_FAILED
