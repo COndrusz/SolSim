@@ -1,4 +1,4 @@
-#include "window.h"
+#include "Window.h"
 
 // Shaders
 const char* vertexShaderSource = "#version 330 core\n"
